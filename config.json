@@ -48,7 +48,7 @@
 			]
 		},
 		{
-			"name": ".gitignore",
+			"name": ".ggitignore",
 			"type": "file"
 		},
 		{
@@ -56,11 +56,11 @@
 			"type": "file"
 		},
 		{
-			"name": "LICENCE",
+			"name": "LLICENSE",
 			"type": "file"
 		},
 		{
-			"name": "README.md",
+			"name": "RREADME.md",
 			"type": "file"
 		},
 		{
