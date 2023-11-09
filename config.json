@@ -1,0 +1,71 @@
+{
+	"path": "",
+	"tree": [
+		{
+			"name": "examples",
+			"type": "directory",
+			"children": [
+				{
+					"name": "project_structure.json",
+					"type": "file"
+				},
+				{
+					"name": "website_structure.yaml",
+					"type": "file"
+				}
+			]
+		},
+		{
+			"name": "folderforge",
+			"type": "directory",
+			"children": [
+				{
+					"name": "init.py",
+					"type": "file"
+				},
+				{
+					"name": "core.py",
+					"type": "file"
+				},
+				{
+					"name": "file_formats.py",
+					"type": "file"
+				}
+			]
+		},
+		{
+			"name": "tests",
+			"type": "directory",
+			"children": [
+				{
+					"name": "test_core.py",
+					"type": "file"
+				},
+				{
+					"name": "test_file_formats.py",
+					"type": "file"
+				}
+			]
+		},
+		{
+			"name": ".gitignore",
+			"type": "file"
+		},
+		{
+			"name": "folderforge_cli.py",
+			"type": "file"
+		},
+		{
+			"name": "LICENCE",
+			"type": "file"
+		},
+		{
+			"name": "README.md",
+			"type": "file"
+		},
+		{
+			"name": "prequirements.txt",
+			"type": "file"
+		}
+	]
+}
