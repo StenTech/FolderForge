@@ -1,6 +1,32 @@
 import os
 import json
 
+class FolderForge:
+	def __init__(self, description_file_path: str):
+		self.description_file_path = description_file_path
+		description = FolderForgeService.readJSON(description_file_path)
+		self.path = description.get("path", "")
+		self.tree = description.get("tree", [])
+		
+		
+	
+	def forge(self):
+
+		FileService.createDirectory(self.path)
+
+		with ChangeDirectoryContext(self.path):	
+			for node in FolderForgeService.searchPaths(self.tree):
+				type = node["type"]
+				path = node["path"]
+				
+				if type == "file":
+					FileService.createFile(path)
+				elif type == "directory":
+					FileService.createDirectory(path)
+				else:
+					raise Exception("Unknown node type: " + type)
+			
+			return self
 
 class FileService:
 
@@ -13,16 +39,50 @@ class FileService:
 		with open(path, "w"):
 			pass
 
+
 	@classmethod
 	def createDirectory(cls, path: str):
 		"""
-		Create a new directory
+		Create a new directory perhabs with subdirectories
+		"""
+		
+		with ChangeDirectoryContext(""):
+		 # Create folders sequentially
+			for folder in path.split('/'):
+				os.makedirs(folder, exist_ok=True)
+				os.chdir(folder)
+
+		
+	
+
+	@classmethod
+	def pathExists(cls, path: str):
+		"""
+		Check if a path exists
 		"""
 
-		if not os.path.exists(path):
-			os.mkdir(path)
+		return os.path.exists(path)
+	
+
+	@classmethod
+	def isdIr(cls, path: str) -> bool:
+		"""
+		Check if a path is a directory
+		"""
+
+		return os.path.isdir(path)
+	
+
 
 class FolderForgeService:
+	
+	@classmethod
+	def readJSON(cls, path: str):
+		"""
+		Read a json file and return its content as a dictionary
+		"""
+		return json.load(open(path))
+		
 	
 	@classmethod
 	def searchPaths(cls, tree: list):
@@ -34,7 +94,6 @@ class FolderForgeService:
 			for node in FolderForgeService.searchPaths(tree):
 				print(node["path"])
 		"""
-
 		cur_list = tree
 		visited = []
 
@@ -56,23 +115,22 @@ class FolderForgeService:
 
 					cur_list.append(child)
 
+
+class ChangeDirectoryContext:
+	def __init__(self, new_directory):
+		self.new_directory = new_directory
+		self.old_directory = os.getcwd()
+
+	def __enter__(self):
+		if self.new_directory != "":
+			os.chdir(self.new_directory)
+
+	def __exit__(self, *args):
+			os.chdir(self.old_directory)
+
 # th€ main function for all services testing
 def main():
-	config = json.load(open("config.json"))
-
-	path = config.get("path")
-	tree = config.get("tree")
-
-	for node in FolderForgeService.searchPaths(tree):
-		type = node["type"]
-		path = node["path"]
-		
-		print(path)
-
-		if type == "file":
-			FileService.createFile(path)
-		else:
-			FileService.createDirectory(path)
+	FolderForge("config.json").forge()
 		
 if __name__ == "__main__":
 	main()
