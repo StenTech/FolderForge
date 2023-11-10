@@ -1,5 +1,5 @@
 {
-	"path": "project",
+	"path": "project/sub1/sub2/",
 	"tree": [
 		{
 			"name": "examples",

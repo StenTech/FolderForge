@@ -23,7 +23,7 @@ class FolderForge:
 		self.tree = description.get("tree", [])
 		
 	def forge(self):
-		FileService.createDirectory(self.path)
+		FileService.createDirectoryWithSubDirs(self.path)
 
 		with ChangeDirectoryContext(self.path):	
 			for node in FolderForgeService.searchPaths(self.tree):
