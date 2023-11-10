@@ -13,18 +13,27 @@ class FileService:
 		with open(path, "w"):
 			pass
 
-
 	@classmethod
 	def createDirectory(cls, path: str):
 		"""
-		Create a new directory perhabs with subdirectories
+		Create a new directory
+		"""
+
+		if not cls.pathExists(path):
+			os.mkdir(path)
+
+	@classmethod
+	def createDirectoryWithSubDirs(cls, path: str):
+		"""
+		Create a new directory with subdirectories
 		"""
 		
+		# Create folders sequentially
 		with ChangeDirectoryContext(""):
-		 # Create folders sequentially
 			for folder in path.split('/'):
-				os.makedirs(folder, exist_ok=True)
-				os.chdir(folder)
+				if folder != "":
+					os.makedirs(folder, exist_ok=True)
+					os.chdir(folder)
 
 	@classmethod
 	def pathExists(cls, path: str):
