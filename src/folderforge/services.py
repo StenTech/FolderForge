@@ -27,13 +27,10 @@ class FileService:
 		"""
 		Create a new directory with subdirectories
 		"""
+		if not cls.pathExists(path):
+			os.makedirs(path, exist_ok=True)
 		
-		# Create folders sequentially
-		with ChangeDirectoryContext(""):
-			for folder in path.split('/'):
-				if folder != "":
-					os.makedirs(folder, exist_ok=True)
-					os.chdir(folder)
+		
 
 	@classmethod
 	def pathExists(cls, path: str):
@@ -106,3 +103,9 @@ class ChangeDirectoryContext:
 
 	def __exit__(self, *args):
 			os.chdir(self.old_directory)
+
+def main():
+	FileService.createDirectoryWithSubDirs("home/stentech/Documents/project/folderforge/src/folderforge")
+
+if __name__ == "__main__":
+	main()
