@@ -1,1 +1,7 @@
 __pycache__
+.vscode
+env
+ignore_this_test.py
+examples
+project
+core.py
