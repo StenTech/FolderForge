@@ -1,29 +1,24 @@
 from os.path import dirname, join
 
 
-# import services
 try:
-	# from folderforge.utils.Class import Color
-	from utils.functions import parser
+	# import services
 	from services import (
 		FolderForgeService,
 		FileService,
 		ChangeDirectoryContext
 	)
+	# import Color
+	from utils.Class import Color
 except:
-	# from .utils.Class import Color
-	from .utils.functions import parser
+	# import services
 	from .services import (
 		FolderForgeService,
 		FileService,
 		ChangeDirectoryContext
 	)
-
-class Color:
-	success = lambda _str: '\033[92m' + _str + '\033[0m' # green
-	danger = lambda _str: '\033[91m' + _str + '\033[0m' # red
-	primary = lambda _str: '\033[96m' + _str + '\033[0m' # cyan
-	warning = lambda _str: '\033[33m' + _str + '\033[0m' # yellow
+	# import Color
+	from .utils.Class import Color
 
 
 class FolderForge:
@@ -36,7 +31,8 @@ class FolderForge:
 	def forge(self, _path: str=""):
 		"""
 		Create the folder structure
-		_path: the path to the root directory in which the folder structure will be created, it can be empty, a simple name or a path
+		_path: the path to the root directory in which the folder structure will be created, 
+		it can be empty, a simple name or a path
 		"""
 		if _path=="":
 			_path = self.path
@@ -58,24 +54,3 @@ class FolderForge:
 					raise Exception("Unknown node type: " + type)
 			
 			return self
-
-
-# the main function for all services testing
-def main():
-	print()
-	args = parser()
-	folderForge = FolderForge(args.description_file)
-
-	# Printing the description file path
-	print("Description file path: " + Color.primary(args.description_file))
-	# Printing the path to the root directory in which the folder structure will be created
-	print("Root directory path: " + Color.primary(args.path if len(args.path) > 0 else folderForge.path))
-	print(Color.warning("\nCreating the folder structure...\n"))
-	
-	folderForge.forge(args.path)
-
-	# With success emoji and party popper emoji \U0001F389 \U0001F389  
-	print(Color.success("\n \U0001F600 Folder structure created successfully!!!\U0001F389 \U0001F389 \U0001F389 \n"))
-
-if __name__ == "__main__":
-	main()
