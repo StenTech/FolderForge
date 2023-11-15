@@ -6,8 +6,9 @@ try:
 	from utils.enums import CONTENT_TYPES
 	from utils.styles import Style
 except:
-	from .utils.functions import getFileContent
-	from .utils.enums import CONTENT_TYPES
+	from ..utils.functions import getFileContent
+	from ..utils.enums import CONTENT_TYPES
+	from ..utils.styles import Style
 
 
 class File:

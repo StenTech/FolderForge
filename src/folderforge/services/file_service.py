@@ -3,7 +3,7 @@ import os
 try:
 	from models import File
 except:
-	from .models import File
+	from ..models import File
 
 
 class FileService:
