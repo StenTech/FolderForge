@@ -1,4 +1,6 @@
 __pycache__
+build
+folderforge.egg*
 .vscode
 env
 ignore_this_test.py
