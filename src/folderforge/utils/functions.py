@@ -1,6 +1,5 @@
 import argparse
-from math import e
-from typing import List
+
 
 def parser():
 	parser = argparse.ArgumentParser(
