@@ -30,11 +30,18 @@ def parser():
 
 	return parser.parse_args()
 
-def getFileContent(path: str) -> List[str]:
-	file = open(path, "r") 
-	contents = file.readlines()
+def getFileContent(path: str) -> str:
+	"""
+	return the file content as string
+	""" 
 
-	return contents
+	content = ""
+	
+	with open(path, "r") as file:
+		lines = file.readlines()
+		content = "".join(lines)
+
+	return content
 
 
 # def main():

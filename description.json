@@ -21,15 +21,27 @@
 			"children": [
 				{
 					"name": "init.py",
-					"type": "file"
+					"type": "file",
+					"content": {
+						"type": "plaintext",
+						"value": "Hello World"
+					}
 				},
 				{
 					"name": "core.py",
-					"type": "file"
+					"type": "file",
+					"content": {
+						"type": "filepath",
+						"value": ".gitignore"
+					}
 				},
 				{
 					"name": "file_formats.py",
-					"type": "file"
+					"type": "file",
+					"content": {
+						"type": "url",
+						"value": "https://jsonip.com"
+					}
 				}
 			]
 		},
