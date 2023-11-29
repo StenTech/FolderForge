@@ -11,7 +11,7 @@ def parser():
     	"--version", action="version", version="%(prog)s 1.0.0"
 	)
 	parser.add_argument(
-		"description_file", 
+		"--description_file", 
 		help="The path to the structure file, it's a JSON file",
 		default="description.json",
 		nargs="?",
