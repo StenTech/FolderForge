@@ -1,6 +1,5 @@
 import argparse
-from math import e
-from typing import List
+
 
 def parser():
 	parser = argparse.ArgumentParser(
@@ -12,7 +11,7 @@ def parser():
     	"--version", action="version", version="%(prog)s 1.0.0"
 	)
 	parser.add_argument(
-		"description_file", 
+		"--description_file", 
 		help="The path to the structure file, it's a JSON file",
 		default="description.json",
 		nargs="?",
@@ -30,11 +29,18 @@ def parser():
 
 	return parser.parse_args()
 
-def getFileContent(path: str) -> List[str]:
-	file = open(path, "r") 
-	contents = file.readlines()
+def getFileContent(path: str) -> str:
+	"""
+	return the file content as string
+	""" 
 
-	return contents
+	content = ""
+	
+	with open(path, "r") as file:
+		lines = file.readlines()
+		content = "".join(lines)
+
+	return content
 
 
 # def main():

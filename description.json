@@ -1,71 +1,71 @@
 {
-	"path": "project/sub1/sub2/",
+	"path": "project/",
 	"tree": [
 		{
-			"name": "examples",
+			"name": "src",
 			"type": "directory",
 			"children": [
 				{
-					"name": "project_structure.json",
-					"type": "file"
+					"name": "folderforge",
+					"type": "directory",
+					"children": [
+						{
+							"name": "__init__.py",
+							"type": "file",
+							"content": {
+								"type": "plaintext",
+								"value": "Initialization file for FolderForge"
+							}
+						},
+						{
+							"name": "__main__.py",
+							"type": "file",
+							"content": {
+								"type": "url",
+								"value": "https://raw.githubusercontent.com/ridoineel/FolderForge/main/src/folderforge/__main__.py"
+							}
+						}
+					]
 				},
 				{
-					"name": "website_structure.yaml",
-					"type": "file"
+					"name": "utils",
+					"type": "directory",
+					"children": [
+						{
+							"name": "styles.py",
+							"type": "file",
+							"content": {
+								"type": "plaintext",
+								"value": "Utility functions for styling"
+							}
+						},
+						{
+							"name": "functions.py",
+							"type": "file",
+							"content": {
+								"type": "url",
+								"value": "https://raw.githubusercontent.com/ridoineel/FolderForge/main/src/folderforge/utils/functions.py"
+							}
+						}
+					]
 				}
 			]
 		},
 		{
-			"name": "folderforge",
-			"type": "directory",
-			"children": [
-				{
-					"name": "init.py",
-					"type": "file"
-				},
-				{
-					"name": "core.py",
-					"type": "file"
-				},
-				{
-					"name": "file_formats.py",
-					"type": "file"
-				}
-			]
+			"name": ".gitignore",
+			"type": "file",
+			"content": {
+				"type": "url",
+				"value": "https://raw.githubusercontent.com/ridoineel/FolderForge/main/.gitignore"
+			}
 		},
 		{
-			"name": "tests",
-			"type": "directory",
-			"children": [
-				{
-					"name": "test_core.py",
-					"type": "file"
-				},
-				{
-					"name": "test_file_formats.py",
-					"type": "file"
-				}
-			]
-		},
-		{
-			"name": ".ggitignore",
-			"type": "file"
-		},
-		{
-			"name": "folderforge_cli.py",
-			"type": "file"
-		},
-		{
-			"name": "LLICENSE",
-			"type": "file"
-		},
-		{
-			"name": "RREADME.md",
-			"type": "file"
-		},
-		{
-			"name": "prequirements.txt",
-			"type": "file"
+			"name": "README.md",
+			"type": "file",
+			"content": {
+				"type": "plaintext",
+				"value": "This is the README file for the project."
+			}
 		}
 	]
 }
