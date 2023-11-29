@@ -1,4 +1,9 @@
 __pycache__
-/src/folderforge/test*
-/src/folderforge.egg*
-dist
+build
+folderforge.egg*
+.vscode
+env
+ignore_this_test.py
+examples
+project
+core.py
