@@ -43,7 +43,12 @@ class FolderForge:
 				path = node["path"]
 				content = node.get("content")
 				
-				print(Color.primary("[FOLDERFORGE]: Creating " + Style.bold(type)) + Color.primary(" " + path))
+				print(Color.primary("[FOLDERFORGE]: Creating " + Style.bold(type)) + Color.primary(" " + path), end="")
+
+				if type == "file":
+					print(f" (from {content['type'].upper()})")
+				else:
+					print()
 
 				if type == "file":
 					file: File = FileService.createFile(path)
