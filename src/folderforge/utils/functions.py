@@ -2,6 +2,13 @@ import argparse
 
 
 def parser():
+	"""
+	Create command line interface arguments parser
+	
+	Returns:
+		ArgumentParser: the argument parser
+	"""
+
 	parser = argparse.ArgumentParser(
 		prog="folderforge",
 		description="A simple tool to create folder structures from a JSON file",
@@ -31,7 +38,13 @@ def parser():
 
 def getFileContent(path: str) -> str:
 	"""
-	return the file content as string
+	Get file content as string
+
+	Args:
+		path (str): The file's path.
+
+	Returns:
+		str: the file's content.
 	""" 
 
 	content = ""

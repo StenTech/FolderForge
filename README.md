@@ -219,7 +219,7 @@ The command should create the file and folder structure defined in the example.j
 
 ## Contributing
 
-Contributions are welcome! Please check the [	](./CONTRIBUTING.md) file for guidelines.
+Contributions are welcome! Please check the [CONTRIBUTING.md](./CONTRIBUTING.md) file for guidelines.
 
 ## License
 
