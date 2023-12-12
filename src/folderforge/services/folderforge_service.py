@@ -5,17 +5,24 @@ import json
 class FolderForgeService:
 	
 	@classmethod
-	def readJSON(cls, path: str):
+	def readJSON(cls, path: str) -> None:
 		"""
 		Read a json file and return its content as a dictionary
+		
+		Agrs:
+			path (str): The json file path
 		"""
+
 		return json.load(open(path))
 	
 	@classmethod
-	def searchPaths(cls, tree: list):
+	def searchPaths(cls, tree: list) -> None:
 		"""
 		An iterator method/function to
 		explore tree nodes using DFS algorithm and create path property for all the node
+
+		Args:
+			tree (list): The list of files or directories according to description file 
 
 		Example:
 			for node in FolderForgeService.searchPaths(tree):
